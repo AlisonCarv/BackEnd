@@ -1,0 +1,63 @@
+//01
+function calcularFatorial(n) {
+    if (n < 0) return null;
+    let fatorial = 1;
+    for (let i = 2; i <= n; i++) {
+        fatorial *= i;
+    }
+    return fatorial;
+}
+//02
+function repetirMensagem(mensagem, n) {
+    return Array(n).fill(mensagem).join(' ');
+}
+//03
+function realizarOperacao(valor1, valor2, operacao) {
+    if (operacao === "adição") return valor1 + valor2;
+    if (operacao === "subtração") return valor1 - valor2;
+    if (operacao === "multiplicação") return valor1 * valor2;
+    if (operacao === "divisão") return valor2 === 0 ? null : valor1 / valor2;
+    return null;
+}
+//04
+function tabuada(numero) {
+    return Array.from({ length: 10 }, (_, i) => numero * (i + 1));
+}
+//05
+function inverterNumero(numero) {
+    return parseInt(numero.toString().split('').reverse().join(''));
+}
+//06
+function contarVogais(texto) {
+    return (texto.match(/[aeiouAEIOU]/g) || []).length;
+}
+//07
+function validarSequencia(sequencia) {
+    let pilha = [];
+    let pares = { ')': '(', ']': '[' };
+    for (let char of sequencia) {
+        if (char === '(' || char === '[') pilha.push(char);
+        else if (char === ')' || char === ']') {
+            if (pilha.pop() !== pares[char]) return false;
+        }
+    }
+    return pilha.length === 0;
+}
+//08
+function gerarObjetos(qtd) {
+    let nomes = ["Alice", "Bruno", "Carlos", "Diana", "Eva", "Felipe", "Gabriela"];
+    let objetos = [];
+    for (let i = 1; i <= qtd; i++) {
+        objetos.push({ id: i, nome: nomes[Math.floor(Math.random() * nomes.length)], idade: Math.floor(Math.random() * 73) + 18 });
+    }
+    return objetos;
+}
+//09
+function calcularMediaIdades(listaObjetos) {
+    let soma = listaObjetos.reduce((acc, obj) => acc + obj.idade, 0);
+    return soma / listaObjetos.length;
+}
+//10
+function ordenarObjetos(listaObjetos, atributo) {
+    return listaObjetos.sort((a, b) => a[atributo] > b[atributo] ? 1 : -1);
+}
